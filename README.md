@@ -47,13 +47,13 @@ You can then execute your native executable with: `./target/code-with-quarkus-1.
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
-## Related Guides
+Deploy to Openshift:
+```shell script
+oc login --server=server_url --token=token
 
-- OpenShift ([guide](https://quarkus.io/guides/deploying-to-openshift)): Generate OpenShift resources from annotations
-- Camel Master ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/master.html)): Have only a single consumer in a cluster consuming from a given endpoint; with automatic failover if the JVM dies
-- Camel Core ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/core.html)): Camel core functionality and basic Camel languages: Constant, ExchangeProperty, Header, Ref, Simple and Tokenize
-- Camel Kubernetes ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/kubernetes.html)): Perform operations against Kubernetes API
-- Camel Timer ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/timer.html)): Generate messages in specified intervals using java.util.Timer
+mvn clean install -Pnative -Dquarkus.native.remote-container-build=true -Dquarkus.container-image.build=true -Dquarkus.kubernetes-client.trust-certs=true -Dquarkus.kubernetes.deploy=true
+
+```
 
 ## Provided Code
 
